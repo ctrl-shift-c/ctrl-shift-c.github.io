@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0"
+  xmlns:atom="http://www.w3.org/2005/Atom"
+  xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>欢迎浏览</title>
+    <link>https://ctrl-shift-c/ctrl-shift-c.github.io/</link>
+    <atom:link href="/rss2.xml" rel="self" type="application/rss+xml"/>
+    
+    <description></description>
+    <pubDate>Sun, 22 Sep 2019 09:07:15 GMT</pubDate>
+    <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>as</title>
+      <link>https://ctrl-shift-c/ctrl-shift-c.github.io/2019/09/22/as/</link>
+      <guid>https://ctrl-shift-c/ctrl-shift-c.github.io/2019/09/22/as/</guid>
+      <pubDate>Sun, 22 Sep 2019 06:28:06 GMT</pubDate>
+      <description>
+      
+        
+        
+          &lt;div class=&quot;ds-recent-visitors&quot; data-num-items=&quot;28&quot; data-avatar-size=&quot;42&quot; id=&quot;ds-recent-visitors&quot;&gt;&lt;/div&gt;
+
+        
+      
+      </description>
+      
+      
+      <content:encoded><![CDATA[<div class="ds-recent-visitors" data-num-items="28" data-avatar-size="42" id="ds-recent-visitors"></div>]]></content:encoded>
+      
+      <comments>https://ctrl-shift-c/ctrl-shift-c.github.io/2019/09/22/as/#disqus_thread</comments>
+    </item>
+    
+    <item>
+      <title>index</title>
+      <link>https://ctrl-shift-c/ctrl-shift-c.github.io/2019/09/22/index/</link>
+      <guid>https://ctrl-shift-c/ctrl-shift-c.github.io/2019/09/22/index/</guid>
+      <pubDate>Sun, 22 Sep 2019 06:07:40 GMT</pubDate>
+      <description>
+      
+        
+        
+          &lt;p&gt;&lt;img src=&quot;//ctrl-shift-c/ctrl-shift-c.github.io/2019/09/22/index/image.jpg&quot; alt=&quot;好看&quot;&gt;&lt;/p&gt;
+
+        
+      
+      </description>
+      
+      
+      <content:encoded><![CDATA[<p><img src="//ctrl-shift-c/ctrl-shift-c.github.io/2019/09/22/index/image.jpg" alt="好看"></p>]]></content:encoded>
+      
+      <comments>https://ctrl-shift-c/ctrl-shift-c.github.io/2019/09/22/index/#disqus_thread</comments>
+    </item>
+    
+    <item>
+      <title>我的测试</title>
+      <link>https://ctrl-shift-c/ctrl-shift-c.github.io/2019/09/22/%E6%88%91%E7%9A%84%E6%B5%8B%E8%AF%95/</link>
+      <guid>https://ctrl-shift-c/ctrl-shift-c.github.io/2019/09/22/%E6%88%91%E7%9A%84%E6%B5%8B%E8%AF%95/</guid>
+      <pubDate>Sun, 22 Sep 2019 05:19:02 GMT</pubDate>
+      <description>
+      
+      </description>
+      
+      
+      <comments>https://ctrl-shift-c/ctrl-shift-c.github.io/2019/09/22/%E6%88%91%E7%9A%84%E6%B5%8B%E8%AF%95/#disqus_thread</comments>
+    </item>
+    
+    <item>
+      <title>Asd</title>
+      <link>https://ctrl-shift-c/ctrl-shift-c.github.io/2019/09/22/Asd/</link>
+      <guid>https://ctrl-shift-c/ctrl-shift-c.github.io/2019/09/22/Asd/</guid>
+      <pubDate>Sun, 22 Sep 2019 05:18:34 GMT</pubDate>
+      <description>
+      
+      </description>
+      
+      
+      <comments>https://ctrl-shift-c/ctrl-shift-c.github.io/2019/09/22/Asd/#disqus_thread</comments>
+    </item>
+    
+    <item>
+      <title>Hello World</title>
+      <link>https://ctrl-shift-c/ctrl-shift-c.github.io/2019/09/22/hello-world/</link>
+      <guid>https://ctrl-shift-c/ctrl-shift-c.github.io/2019/09/22/hello-world/</guid>
+      <pubDate>Sun, 22 Sep 2019 05:04:51 GMT</pubDate>
+      <description>
+      
+        
+        
+          &lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.
+        
+      
+      </description>
+      
+      
+      <content:encoded><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>]]></content:encoded>
+      
+      <comments>https://ctrl-shift-c/ctrl-shift-c.github.io/2019/09/22/hello-world/#disqus_thread</comments>
+    </item>
+    
+  </channel>
+</rss>
