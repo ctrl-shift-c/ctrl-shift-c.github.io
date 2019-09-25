@@ -291,9 +291,9 @@ npm instal">
 <script src="/libs/cryptojs/crypto-js.min.js"></script>
 <script>
     (function() {
-        let pwd = '3062543539lis';
+        let pwd = '1111111111';
         if (pwd && pwd.length > 0) {
-            if (pwd !== CryptoJS.SHA256(prompt('私我回复密码')).toString(CryptoJS.enc.Hex)) {
+            if (pwd !== prompt('私我回复密码')) {
                 alert('密码错误，将返回主页！');
                 location.href = '/';
             }
@@ -614,8 +614,9 @@ type: categories
     1. [条形](http://tholman.com/github-corners/)
     2. [图案](https://github.blog/2008-12-19-github-ribbons/)
     3. 上边两个网站自己选一个喜欢的复制代码
-    4. 然后粘贴刚才复制的代码到themes/next/layout/_layout.swig文件中(放在**&lt;div class=&quot;headband&quot;&gt;&lt;/div&gt;**的下面)，并把href标签改为你的github地址</code></pre><p><a href="https://github.com/ctrl-shift-c" class="github-corner" aria-label="View source on GitHub" target="_blank" rel="noopener">&lt;svgXXXX</a></p>
-<pre><code>13. 点击出现心的效果
+    4. 然后粘贴刚才复制的代码到themes/next/layout/_layout.swig文件中(放在**&lt;div class=&quot;headband&quot;&gt;&lt;/div&gt;**的下面)，并把href标签改为你的github地址
+```&lt;a href=&quot;https://github.com/ctrl-```
+13. 点击出现心的效果
     1. </code></pre><p>!function(e,t,a){function n(){c(“.heart{width: 10px;height: 10px;position: fixed;background: #f00;transform: rotate(45deg);-webkit-transform: rotate(45deg);-moz-transform: rotate(45deg);}.heart:after,.heart:before{content: ‘’;width: inherit;height: inherit;background: inherit;border-radius: 50%;-webkit-border-radius: 50%;-moz-border-radius: 50%;position: fixed;}.heart:after{top: -5px;}.heart:before{left: -5px;}”),o(),r()}function r(){for(var e=0;e&lt;d.length;e++)d[e].alpha&lt;=0?(t.body.removeChild(d[e].el),d.splice(e,1)):(d[e].y–,d[e].scale+=.004,d[e].alpha-=.013,d[e].el.style.cssText=”left:”+d[e].x+”px;top:”+d[e].y+”px;opacity:”+d[e].alpha+”;transform:scale(“+d[e].scale+”,”+d[e].scale+”) rotate(45deg);background:”+d[e].color+”;z-index:99999”);requestAnimationFrame(r)}function o(){var t=”function”==typeof e.onclick&amp;&amp;e.onclick;e.onclick=function(e){t&amp;&amp;t(),i(e)}}function i(e){var a=t.createElement(“div”);a.className=”heart”,d.push({el:a,x:e.clientX-5,y:e.clientY-5,scale:1,alpha:1,color:s()}),t.body.appendChild(a)}function c(e){var a=t.createElement(“style”);a.type=”text/css”;try{a.appendChild(t.createTextNode(e))}catch(t){a.styleSheet.cssText=e}t.getElementsByTagName(“head”)[0].appendChild(a)}function s(){return”rgb(“+<del>(255*Math.random())+”,”+</del>(255<em>Math.random())+”,”+~~(255</em>Math.random())+”)”}var d=[];e.requestAnimationFrame=function(){return e.requestAnimationFrame||e.webkitRequestAnimationFrame||e.mozRequestAnimationFrame||e.oRequestAnimationFrame||e.msRequestAnimationFrame||function(e){setTimeout(e,1e3/60)}}(),n()}(window,document);</p>
 <pre><code>    2. 创建一个文件保存上术文字（click.js)将他保存在**D:\hexos\themes\next\source\js**里
     3. XXX:\hexos\themes\next\layout里找到_layout.swig输入
