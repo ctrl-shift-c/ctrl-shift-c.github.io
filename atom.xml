@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>欢迎浏览</title>
+  
+  <subtitle>不要放弃</subtitle>
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="https://www.libaiyang.top/"/>
+  <updated>2019-09-24T15:23:34.494Z</updated>
+  <id>https://www.libaiyang.top/</id>
+  
+  <author>
+    <name>李柏杨</name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>如何创建hexo</title>
+    <link href="https://www.libaiyang.top/2019/09/22/hexo/"/>
+    <id>https://www.libaiyang.top/2019/09/22/hexo/</id>
+    <published>2019-09-22T05:19:02.000Z</published>
+    <updated>2019-09-24T15:23:34.494Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;一：在本地创建hexo&quot;&gt;&lt;a href=&quot;#一：在本地创建hexo&quot; class=&quot;headerlink&quot; title=&quot;一：在本地创建hexo&quot;&gt;&lt;/a&gt;一：在本地创建hexo&lt;/h2&gt;&lt;ol&gt;
+&lt;li&gt;在本地创建hexo文件夹&lt;/li&gt;
+&lt;li&gt;然后进入这个新建的文件夹右键右键选择Git Bash Here&lt;/li&gt;
+&lt;li&gt;在git命令行中输入&lt;ol&gt;
+&lt;li&gt;npm install -g hexo&lt;/li&gt;
+&lt;li&gt;hexo init&lt;/li&gt;
+&lt;li&gt;npm install&lt;/li&gt;
+&lt;li&gt;npm install hexo-deployer-git –save&lt;/li&gt;
+&lt;li&gt;hexo s&lt;/li&gt;
+&lt;li&gt;hexo g&lt;/li&gt;
+&lt;li&gt;hexo d&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;hr&gt;
+    
+    </summary>
+    
+    
+      <category term="Hexo教程" scheme="https://www.libaiyang.top/categories/Hexo%E6%95%99%E7%A8%8B/"/>
+    
+    
+      <category term="git快捷键输入Shift+Insert" scheme="https://www.libaiyang.top/tags/git%E5%BF%AB%E6%8D%B7%E9%94%AE%E8%BE%93%E5%85%A5Shift-Insert/"/>
+    
+      <category term="git可以上下选择以前输入过的" scheme="https://www.libaiyang.top/tags/git%E5%8F%AF%E4%BB%A5%E4%B8%8A%E4%B8%8B%E9%80%89%E6%8B%A9%E4%BB%A5%E5%89%8D%E8%BE%93%E5%85%A5%E8%BF%87%E7%9A%84/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>最全最简单的hexo创键美化教程</title>
+    <link href="https://www.libaiyang.top/2019/09/22/hexos/"/>
+    <id>https://www.libaiyang.top/2019/09/22/hexos/</id>
+    <published>2019-09-22T05:19:02.000Z</published>
+    <updated>2019-09-24T16:01:25.776Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;一：在本地创建hexo&quot;&gt;&lt;a href=&quot;#一：在本地创建hexo&quot; class=&quot;headerlink&quot; title=&quot;一：在本地创建hexo&quot;&gt;&lt;/a&gt;一：在本地创建hexo&lt;/h2&gt;&lt;ol&gt;
+&lt;li&gt;在本地创建hexo文件夹&lt;/li&gt;
+&lt;li&gt;然后进入这个新建的文件夹右键右键选择Git Bash Here&lt;/li&gt;
+&lt;li&gt;在git命令行中输入&lt;ol&gt;
+&lt;li&gt;npm install -g hexo&lt;/li&gt;
+&lt;li&gt;hexo init&lt;/li&gt;
+&lt;li&gt;npm install&lt;/li&gt;
+&lt;li&gt;npm install hexo-deployer-git –save&lt;/li&gt;
+&lt;li&gt;hexo s&lt;/li&gt;
+&lt;li&gt;hexo g&lt;/li&gt;
+&lt;li&gt;hexo d&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;hr&gt;
+&lt;p&gt;** 注意前期执行到第5不即可&lt;br&gt;**    1. 当输入hexo s 后会停止，提示你输入ctrl+C退出&lt;br&gt;**    2. 输入&lt;a href=&quot;http://localhost:4000/如果显示界面证明配置成功&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;http://localhost:4000/如果显示界面证明配置成功&lt;/a&gt;&lt;br&gt;**    3. Ctrl+C退出&lt;/p&gt;
+&lt;h2 id=&quot;4-如果没有界面显示删除文件夹继续上述步骤直到成功&quot;&gt;&lt;a href=&quot;#4-如果没有界面显示删除文件夹继续上述步骤直到成功&quot; class=&quot;headerlink&quot; title=&quot;**    4. 如果没有界面显示删除文件夹继续上述步骤直到成功&quot;&gt;&lt;/a&gt;**    4. 如果没有界面显示删除文件夹继续上述步骤直到成功&lt;/h2&gt;
+    
+    </summary>
+    
+    
+      <category term="Hexo教程" scheme="https://www.libaiyang.top/categories/Hexo%E6%95%99%E7%A8%8B/"/>
+    
+    
+      <category term="git快捷键输入Shift+Insert" scheme="https://www.libaiyang.top/tags/git%E5%BF%AB%E6%8D%B7%E9%94%AE%E8%BE%93%E5%85%A5Shift-Insert/"/>
+    
+      <category term="git可以上下选择以前输入过的" scheme="https://www.libaiyang.top/tags/git%E5%8F%AF%E4%BB%A5%E4%B8%8A%E4%B8%8B%E9%80%89%E6%8B%A9%E4%BB%A5%E5%89%8D%E8%BE%93%E5%85%A5%E8%BF%87%E7%9A%84/"/>
+    
+  </entry>
+  
+</feed>
