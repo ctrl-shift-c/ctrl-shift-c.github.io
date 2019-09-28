@@ -4,11 +4,11 @@
   
     
     <entry>
-      <title>学习java-1</title>
-      <link href="/2019/09/22/java/"/>
-      <url>/2019/09/22/java/</url>
+      <title>java-1代码</title>
+      <link href="/2019/09/28/java-1-dai-ma/"/>
+      <url>/2019/09/28/java-1-dai-ma/</url>
       
-        <content type="html"><![CDATA[<h2 id="java序列化和文件的输入输出流"><a href="#java序列化和文件的输入输出流" class="headerlink" title="java序列化和文件的输入输出流"></a>java序列化和文件的输入输出流</h2><h2 id="一-java的输入流（序列化）"><a href="#一-java的输入流（序列化）" class="headerlink" title="一.java的输入流（序列化）"></a>一.java的输入流（序列化）</h2><p>引入 <code>import java.io.*;</code></p><ol><li>FileOutputStream<br><code>FileInputStream fileStream = new FileOutputStream(&quot;文件&quot;);</code><br>注：当文件不在时创建该文件，可能抛出异常放在try里<br>作用：使得该类链接该文件，直接对文件进行操作的类</li><li>ObjectInputStream<br><code>ObjectInputStream os = new ObjectInputStream(fileStream)</code><br>作用：把对象转化成可以写入串流的数据,并链接文件类</li><li>writeObject<br><code>os.writeObject(chaeacterOne)</code><br>作用：对象被打成串流送到FileOutputStream来写入文件</li><li>os.close()<br>作用：关闭所关联的输出流，结束像文件里输入</li></ol><hr><p>注：<br>    1. 当对象被序列化时，被对象所引用的所有变量都会被序列化（实例变量，引用的对象等），序列化只有全有或者全无，没有半序列化（除了被声明为<code>transient</code>量外）<br>    2. 要想一个类能够被序列化必须告诉计算机，也就是必须实现这个接口<code>Serializable</code>，这个接口没有任何方法，他仅代表该类可以被序列化。<br>    3. 声明为<code>Serializable</code>的子类也会自动表示为可序列化，不用再次声明.<br>    4. 如果某个实例不能或不应该被序列化，就把他标记为<code>transient</code>，引用的实例变量以<strong>null</strong>的值返回，实例变量以<strong>默认值</strong>返回<br>    5. 即便父类不是可序列化的子类一样可以时序列化的<br>    6. 当多个引用变量指向同一个对象时，序列化只会序列化一次对象，并不会复制三次对象。</p><hr><h2 id="二-java的输出流（解序列化）"><a href="#二-java的输出流（解序列化）" class="headerlink" title="二.java的输出流（解序列化）"></a>二.java的输出流（解序列化）</h2><ol><li>FileInputStream<br><code>FileInputStream fileStream = new FileInputStream(&quot;文件&quot;);</code><br>注：文件不存在时会抛出异常<br>作用：连接文件,对文件操作可以输出文件内容</li><li>ObjectInputStream<br>ObjectInputStream os = new ObjectInputStream(fileStream);<br>作用：链接文件类</li><li>readObject<br><code>Object one - os.readObject();</code><br>作用：将文件的第一个字节流输入=出到one对象里</li></ol><hr><p>注：</p><ol><li>每次调用readObject()都会从stream中读出下一个对象，Stream指针一开始在文件第一个字符前，然后每次读取一次，每次下移动一次，然后当没有字符可以读时返回null，这个null可以作为判断条件。</li><li>读取的顺序与写入的顺序一致</li><li>当次数超过会抛出异常（因此需要在读取之前判断，或者throws相应的异常，在catch里进行解决）</li></ol><hr><ol start="4"><li>转化类型<br>XXXX elf = (XXXX)one<br>因为提取出的数据时Object型的。</li><li>os.close()<br>作用： 关闭输出流，结束从文件向外输出</li></ol><hr><p>注：</p><ol><li>从第一个不可序列化的父类开始全部都会重新初始状态静态变量不会被序列化</li></ol><hr><h2 id="三-磁盘文件"><a href="#三-磁盘文件" class="headerlink" title="三.磁盘文件"></a>三.磁盘文件</h2><ol><li>File<br><code>File f = new File(&quot;文件&quot;);</code><br>作用：磁盘上上的文件</li></ol><hr><p>注：<br>表示特定文件的<strong>地址</strong>，不是文件本身</p><hr><p>2.mkdir<br><code>f.mkdir();</code><br>作用:建立新的目录<br>3.isDirectory(),list</p><pre><code>if(f.idDirectory()){    String []dirContents = dir.list();    for(int i=0; i&lt;disContents; i++){        System,out.println(dirContents[i])    }}</code></pre><p>作用：列出目录下的内容</p><ol start="4"><li>getAbsolutePath<br><code>f.getAbsolutePath();</code><br>作用：取得文件或目录的绝对路径</li><li>delete     boolean<br><code>f.delete()</code><br>作用：删除文件或者目录<br>此例中删除的是目录</li></ol><hr><h2 id="四-缓冲区"><a href="#四-缓冲区" class="headerlink" title="四.缓冲区"></a>四.缓冲区</h2><p>缓冲区：可以一次存储很多数据后，一并输入，当多次输入时比次多次的输入效率高，减少对磁盘的操作次数</p><ol><li>BufferedWriter<br><code>BufferedWriter write = new BufferedWriter(new FileWriter(aFile));</code><br>作用：建立文件输入的缓冲区</li><li>BufferdReader<br>例子：<pre><code>try{ File myFile = new File(&quot;文件&quot;); FileReader fileReader = new FileReader(myFile); BufferedReader reader = new BufferedReader(fillReader); String line - null; while((line = reader.readLine())! = null){     System.out.pintln(line); } reader.close();}catch(Exception ex){ ex.printStackTrace();}</code></pre></li><li>split<pre><code>String toTest = &quot;XXXXXX/XXX/XXX&quot;;String [] result = toTest.split(&quot;/&quot;);</code></pre>作用：将字符串分解成字符数组按照你给定的方式</li></ol><hr><h2 id="五-注意"><a href="#五-注意" class="headerlink" title="五.注意"></a>五.注意</h2><p>修改一般序列化后不要进行的操作，要不会造成解序列化的失败      </p><ol><li>改变实例变量的类型</li><li>将非瞬时的实例变量变成瞬时的</li><li>改变类的继承结构</li><li>将类从可序列化变成不可序列化</li><li>将实例变量变成静态变量</li><li>删除实例变量<br>只要不是上方的几种可以使用<strong>SerialVersionUID</strong>，进行控制</li><li>每次被序列化的对象都会产生一个版本号，这个版本号将烙印在所有的该类上，一旦你更改了类的方法，变量等，就会改变版本号导致在解序列化时产生错误，因此可以得到SeriaalVersionUID,进行版本控制，即新版的可以插件旧版本里（注意你认为是对的，要不就会产生错误）</li><li>如何的到SerialVersiouUID?<br> 使用java Development Kit 里面带的serialver,你会看到<strong>static final long serialVersionUID = XXXXXXXX;</strong></li><li>如何用呢?<br>将上述得到的serialVerlonUID全部复制，放到新类的第一行即可，</li></ol><hr>]]></content>
+        <content type="html"><![CDATA[]]></content>
       
       
       <categories>
@@ -20,11 +20,9 @@
       
         <tags>
             
-            <tag> jvaa序列化文件输入 </tag>
+            <tag> (idea)快速声成setter/getter alt + install </tag>
             
-            <tag> java反序列化文件输出 </tag>
-            
-            <tag> java纯文本形式输入，输出 </tag>
+            <tag> (idea)快速添加头文件  alt + Enter </tag>
             
         </tags>
       
@@ -52,6 +50,35 @@
             <tag> git快捷键输入Shift+Insert </tag>
             
             <tag> git可以上下选择以前输入过的 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>学习java-1</title>
+      <link href="/2019/09/22/java/"/>
+      <url>/2019/09/22/java/</url>
+      
+        <content type="html"><![CDATA[<h2 id="java序列化和文件的输入输出流"><a href="#java序列化和文件的输入输出流" class="headerlink" title="java序列化和文件的输入输出流"></a>java序列化和文件的输入输出流</h2><h2 id="一-java的输入流（序列化）"><a href="#一-java的输入流（序列化）" class="headerlink" title="一.java的输入流（序列化）"></a>一.java的输入流（序列化）</h2><p>引入 <code>import java.io.*;</code></p><ol><li>FileOutputStream<br><code>FileOutputStream fileStream = new FileOutputStream(&quot;文件&quot;);</code><br>注：当文件不在时创建该文件，可能抛出异常放在try里<br>作用：使得该类链接该文件，直接对文件进行操作的类</li><li>ObjectOutputStream<br><code>ObjectOutputStream os = new ObjectOutputStream(fileStream)</code><br>作用：把对象转化成可以写入串流的数据,并链接文件类</li><li>writeObject<br><code>os.writeObject(chaeacterOne)</code><br>作用：对象被打成串流送到FileOutputStream来写入文件</li><li>os.close()<br>作用：关闭所关联的输出流，结束像文件里输入</li></ol><hr><p>注：<br>    1. 当对象被序列化时，被对象所引用的所有变量都会被序列化（实例变量，引用的对象等），序列化只有全有或者全无，没有半序列化（除了被声明为<code>transient</code>量外）<br>    2. 要想一个类能够被序列化必须告诉计算机，也就是必须实现这个接口<code>Serializable</code>，这个接口没有任何方法，他仅代表该类可以被序列化。<br>    3. 声明为<code>Serializable</code>的子类也会自动表示为可序列化，不用再次声明.<br>    4. 如果某个实例不能或不应该被序列化，就把他标记为<code>transient</code>，引用的实例变量以<strong>null</strong>的值返回，实例变量以<strong>默认值</strong>返回<br>    5. 即便父类不是可序列化的子类一样可以时序列化的<br>    6. 当多个引用变量指向同一个对象时，序列化只会序列化一次对象，并不会复制三次对象。</p><hr><h2 id="二-java的输出流（解序列化）"><a href="#二-java的输出流（解序列化）" class="headerlink" title="二.java的输出流（解序列化）"></a>二.java的输出流（解序列化）</h2><ol><li>FileInputStream<br><code>FileInputStream fileStream = new FileInputStream(&quot;文件&quot;);</code><br>注：文件不存在时会抛出异常<br>作用：连接文件,对文件操作可以输出文件内容</li><li>ObjectInputStream<br>ObjectInputStream os = new ObjectInputStream(fileStream);<br>作用：链接文件类</li><li>readObject<br><code>Object one - os.readObject();</code><br>作用：将文件的第一个字节流输入=出到one对象里</li></ol><hr><p>注：</p><ol><li>每次调用readObject()都会从stream中读出下一个对象，Stream指针一开始在文件第一个字符前，然后每次读取一次，每次下移动一次，然后当没有字符可以读时返回null，这个null可以作为判断条件。</li><li>读取的顺序与写入的顺序一致</li><li>当次数超过会抛出异常（因此需要在读取之前判断，或者throws相应的异常，在catch里进行解决）</li></ol><hr><ol start="4"><li>转化类型<br>XXXX elf = (XXXX)one<br>因为提取出的数据时Object型的。</li><li>os.close()<br>作用： 关闭输出流，结束从文件向外输出</li></ol><hr><p>注：</p><ol><li>从第一个不可序列化的父类开始全部都会重新初始状态静态变量不会被序列化</li></ol><hr><h2 id="三-磁盘文件"><a href="#三-磁盘文件" class="headerlink" title="三.磁盘文件"></a>三.磁盘文件</h2><ol><li>File<br><code>File f = new File(&quot;文件&quot;);</code><br>作用：磁盘上上的文件</li></ol><hr><p>注：<br>表示特定文件的<strong>地址</strong>，不是文件本身</p><hr><p>2.mkdir<br><code>f.mkdir();</code><br>作用:建立新的目录<br>3.isDirectory(),list</p><pre><code>if(f.idDirectory()){    String []dirContents = dir.list();    for(int i=0; i&lt;disContents; i++){        System,out.println(dirContents[i])    }}</code></pre><p>作用：列出目录下的内容</p><ol start="4"><li>getAbsolutePath<br><code>f.getAbsolutePath();</code><br>作用：取得文件或目录的绝对路径</li><li>delete     boolean<br><code>f.delete()</code><br>作用：删除文件或者目录<br>此例中删除的是目录</li></ol><hr><h2 id="四-缓冲区"><a href="#四-缓冲区" class="headerlink" title="四.缓冲区"></a>四.缓冲区</h2><p>缓冲区：可以一次存储很多数据后，一并输入，当多次输入时比次多次的输入效率高，减少对磁盘的操作次数</p><ol><li>BufferedWriter<br><code>BufferedWriter write = new BufferedWriter(new FileWriter(aFile));</code><br>作用：建立文件输入的缓冲区</li><li>BufferdReader<br>例子：<pre><code>try{ File myFile = new File(&quot;文件&quot;); FileReader fileReader = new FileReader(myFile); BufferedReader reader = new BufferedReader(fillReader); String line - null; while((line = reader.readLine())! = null){     System.out.pintln(line); } reader.close();}catch(Exception ex){ ex.printStackTrace();}</code></pre></li><li>split<pre><code>String toTest = &quot;XXXXXX/XXX/XXX&quot;;String [] result = toTest.split(&quot;/&quot;);</code></pre>作用：将字符串分解成字符数组按照你给定的方式</li></ol><hr><h2 id="五-注意"><a href="#五-注意" class="headerlink" title="五.注意"></a>五.注意</h2><p>修改一般序列化后不要进行的操作，要不会造成解序列化的失败      </p><ol><li>改变实例变量的类型</li><li>将非瞬时的实例变量变成瞬时的</li><li>改变类的继承结构</li><li>将类从可序列化变成不可序列化</li><li>将实例变量变成静态变量</li><li>删除实例变量<br>只要不是上方的几种可以使用<strong>SerialVersionUID</strong>，进行控制</li><li>每次被序列化的对象都会产生一个版本号，这个版本号将烙印在所有的该类上，一旦你更改了类的方法，变量等，就会改变版本号导致在解序列化时产生错误，因此可以得到SeriaalVersionUID,进行版本控制，即新版的可以插件旧版本里（注意你认为是对的，要不就会产生错误）</li><li>如何的到SerialVersiouUID?<br> 使用java Development Kit 里面带的serialver,你会看到<strong>static final long serialVersionUID = XXXXXXXX;</strong></li><li>如何用呢?<br>将上述得到的serialVerlonUID全部复制，放到新类的第一行即可，</li></ol><hr>]]></content>
+      
+      
+      <categories>
+          
+          <category> java基础 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> jvaa序列化文件输入 </tag>
+            
+            <tag> java反序列化文件输出 </tag>
+            
+            <tag> java纯文本形式输入，输出 </tag>
             
         </tags>
       

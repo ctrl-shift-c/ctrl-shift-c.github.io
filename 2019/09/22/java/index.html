@@ -7,7 +7,7 @@
     <meta name="keywords" content="学习java-1, 欢迎浏览">
     <meta name="description" content="java序列化和文件的输入输出流一.java的输入流（序列化）引入 import java.io.*;
 
-FileOutputStreamFileInputStream fileStream = new FileOutputStream(&amp;">
+FileOutputStreamFileOutputStream fileStream = new FileOutputStream(">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -488,8 +488,8 @@ FileOutputStreamFileInputStream fileStream = new FileOutputStream(&amp;">
             <div id="articleContent">
                 <h2 id="java序列化和文件的输入输出流"><a href="#java序列化和文件的输入输出流" class="headerlink" title="java序列化和文件的输入输出流"></a>java序列化和文件的输入输出流</h2><h2 id="一-java的输入流（序列化）"><a href="#一-java的输入流（序列化）" class="headerlink" title="一.java的输入流（序列化）"></a>一.java的输入流（序列化）</h2><p>引入 <code>import java.io.*;</code></p>
 <ol>
-<li>FileOutputStream<br><code>FileInputStream fileStream = new FileOutputStream(&quot;文件&quot;);</code><br>注：当文件不在时创建该文件，可能抛出异常放在try里<br>作用：使得该类链接该文件，直接对文件进行操作的类</li>
-<li>ObjectInputStream<br><code>ObjectInputStream os = new ObjectInputStream(fileStream)</code><br>作用：把对象转化成可以写入串流的数据,并链接文件类</li>
+<li>FileOutputStream<br><code>FileOutputStream fileStream = new FileOutputStream(&quot;文件&quot;);</code><br>注：当文件不在时创建该文件，可能抛出异常放在try里<br>作用：使得该类链接该文件，直接对文件进行操作的类</li>
+<li>ObjectOutputStream<br><code>ObjectOutputStream os = new ObjectOutputStream(fileStream)</code><br>作用：把对象转化成可以写入串流的数据,并链接文件类</li>
 <li>writeObject<br><code>os.writeObject(chaeacterOne)</code><br>作用：对象被打成串流送到FileOutputStream来写入文件</li>
 <li>os.close()<br>作用：关闭所关联的输出流，结束像文件里输入</li>
 </ol>
@@ -1029,70 +1029,9 @@ String [] result = toTest.split(&quot;/&quot;);</code></pre>作用：将字符�
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
-            <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;本篇
-            </div>
-            <div class="card">
-                <a href="/2019/09/22/java/">
-                    <div class="card-image">
-                        
-                        
-                        <img src="/medias/featureimages/5.jpg" class="responsive-img" alt="学习java-1">
-                        
-                        <span class="card-title">学习java-1</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            java序列化和文件的输入输出流一.java的输入流（序列化）引入 import java.io.*;
-
-FileOutputStreamFileInputStream fileStream = new FileOutputStream(&
-                        
-                    </div>
-                    <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2019-09-22
-                            </span>
-                        <span class="publish-author">
-                            
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/java基础/" class="post-category">
-                                    java基础
-                                </a>
-                            
-                            
-                        </span>
-                    </div>
-                </div>
-
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/jvaa序列化文件输入/">
-                        <span class="chip bg-color">jvaa序列化文件输入</span>
-                    </a>
-                    
-                    <a href="/tags/java反序列化文件输出/">
-                        <span class="chip bg-color">java反序列化文件输出</span>
-                    </a>
-                    
-                    <a href="/tags/java纯文本形式输入，输出/">
-                        <span class="chip bg-color">java纯文本形式输入，输出</span>
-                    </a>
-                    
-                </div>
-                
-            </div>
-        </div>
-        
-        
         <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
-            </div>
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
                 <a href="/2019/09/22/hexo/">
                     <div class="card-image">
@@ -1114,6 +1053,65 @@ npm install -g hexo
 hexo init
 npm install
 npm instal
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2019-09-22
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Hexo教程/" class="post-category">
+                                    Hexo教程
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/git快捷键输入Shift-Insert/">
+                        <span class="chip bg-color">git快捷键输入Shift+Insert</span>
+                    </a>
+                    
+                    <a href="/tags/git可以上下选择以前输入过的/">
+                        <span class="chip bg-color">git可以上下选择以前输入过的</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2019/09/22/hexos/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/8.jpg" class="responsive-img" alt="hexo美化教程最新版">
+                        
+                        <span class="card-title">hexo美化教程最新版</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            一：在本地创建hexo
+在本地创建hexo文件夹
+然后进入这个新建的文件夹右键选择Git Bash Here
+在git命令行中输入npm install -g hexo
+hexo init
+npm install
+npm install h
                         
                     </div>
                     <div class="publish-info">
