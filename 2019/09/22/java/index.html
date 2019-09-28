@@ -463,14 +463,14 @@ FileOutputStreamFileOutputStream fileStream = new FileOutputStream(">
                     
                     <div class="info-break-policy">
                         <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                        1.2k
+                        2.3k
                     </div>
                     
 
                     
                     <div class="info-break-policy">
                         <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                        4 分
+                        10 分
                     </div>
                     
                 
@@ -569,6 +569,274 @@ String [] result = toTest.split(&quot;/&quot;);</code></pre>作用：将字符�
 <li>如何用呢?<br>将上述得到的serialVerlonUID全部复制，放到新类的第一行即可，</li>
 </ol>
 <hr>
+<hr>
+<p>title: java-1代码<br>date: 2019-09-28 12:04:05<br>categories: “java基础”<br>tags:</p>
+<ul>
+<li>(idea)快速声成setter/getter alt + install</li>
+<li>(idea)快速添加头文件  alt + Enter</li>
+</ul>
+<hr>
+<h2 id="六-序列化方式实现数据的流动（六个类）"><a href="#六-序列化方式实现数据的流动（六个类）" class="headerlink" title="六. 序列化方式实现数据的流动（六个类）"></a>六. 序列化方式实现数据的流动（六个类）</h2><ol>
+<li><a href="#Main" target="_self">Main.java（主类负责调用，逻辑类)</a></li>
+<li><a href="#Student">Student.java(学生类负责存数据，基础类)</a></li>
+<li><a href="#AddStudent">AddStudent.java(添加学生类，操作类)</a></li>
+<li><a href="#FileOutStreamTes">FileOutStreamTes.java(序列化，添加数据到文件，操作类，覆盖输入)</a></li>
+<li><a href="#FileInstreamTest">FileInstreamTest.java(解序列化,输出文本内容，操作类)</a></li>
+<li><a href="#Menu">Menu.java(菜单类,显示类)</a></li>
+</ol>
+<hr>
+<h2 id="七-五个包"><a href="#七-五个包" class="headerlink" title="七. 五个包"></a>七. 五个包</h2><ol>
+<li>org.student.emtity</li>
+<li>org.student.control</li>
+<li>org.file.control</li>
+<li>org.main.test</li>
+<li>org.menu.view</li>
+</ol>
+<hr>
+<h2 id="八-代码："><a href="#八-代码：" class="headerlink" title="八. 代码："></a>八. 代码：</h2><ol>
+<li>Main.java<div id="Main"></div><pre><code> package org.main.test;
+ import org.file.control.FileInStreamTest;
+ import org.file.control.FileOutStreamTest;
+ import org.menu.view.Menu;
+ import org.org.student.control.AddStudent;
+ import org.student.emtity.Student;
+ import java.util.ArrayList;
+ import java.util.Iterator;
+ import java.util.List;
+ public class Main {
+     public static void main(String []args){
+         FileInStreamTest fist = new FileInStreamTest();
+         FileOutStreamTest fost = new FileOutStreamTest();
+         AddStudent addStudent = new AddStudent();
+         List list = new ArrayList&lt;Student&gt;();
+         Menu menu =new Menu();
+         while(true){
+             String str = menu.menu();
+             switch(str){
+                 case &quot;1&quot;: list = addStudent.addStudent();break;
+                 case &quot;2&quot;: fost.OutStreamtest(list);break;
+                 case &quot;3&quot;:
+                     list =fist.InStreamTest();
+                     if(list.isEmpty()){
+                         System.out.println(&quot;数据是空的京添加数据&quot;);
+                     }else{
+                         Iterator&lt;Student&gt; it = list.iterator();
+                         while(it.hasNext()){
+                             Student student = it.next();
+                             System.out.println(student);
+                         }break;
+                  default:
+                         System.out.println(&quot;请重新输入!!!!\n&quot; + str);
+             }
+         }
+     }
+ }</code></pre></li>
+<li>Student.java<div id="Student"></div><pre><code> package org.student.emtity;
+ import java.io.Serializable;
+ public class Student&lt;toString&gt; implements Serializable {
+     private String name;
+     private int id;
+     public Student(String name, int id) {
+         this.name = name;
+         this.id = id;
+     }
+     public String getName() {
+         return name;
+     }
+     public int getId() {
+         return id;
+     }
+     public void setName(String name) {
+         this.name = name;
+     }
+     public void setId(int id) {
+         this.id = id;
+     }
+     public String toString() {
+         return &quot;id: &quot; + getId() + &quot;\n name: &quot; +  getName();
+     }
+ }</code></pre></li>
+<li>AddStudent.java<div id="AddStudent"></div><pre><code>package org.org.student.control;
+import org.student.emtity.Student;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+public class AddStudent {
+    public List addStudent(){
+        List list = new ArrayList&lt;Student&gt;();
+        Scanner in = new Scanner(System.in);
+        System.out.print(&quot;输入几次多少学生信息 :&quot;);
+        int count = in.nextInt();
+        while(count-- &gt; 0){
+            String str = in.next();
+            int id = in.nextInt();
+            Student student = new Student(str,id);
+            list.add(student);
+        }
+        return list;
+    }
+}</code></pre></li>
+<li>FileOutStreamTes.java<div id="FileOutStreamTes"></div><pre><code> package org.file.control;
+ import java.io.*;
+ import java.util.List;
+ public class FileOutStreamTest {
+     public  void OutStreamtest(List list){
+         try{
+             FileOutputStream fos = new FileOutputStream(new File(&quot;test.txt&quot;));
+             ObjectOutputStream os = new ObjectOutputStream(fos);
+             os.writeObject(list);
+             os.close();
+         }catch(Exception e){
+             e.printStackTrace();
+         }
+     }
+ }</code></pre></li>
+<li>FileInstreamTest.java<div id="FileInstreamTest"></div><pre><code>package org.file.control;
+import org.student.emtity.Student;
+import java.io.*;
+import java.util.ArrayList;
+import java.util.List;
+public class FileInStreamTest {
+ public List InStreamTest() {
+     Object object;
+     List list = new ArrayList&lt;Student&gt;();
+     try {
+         File file = new File(&quot;test.txt&quot;);
+         FileInputStream fis = new FileInputStream(file);
+         try (ObjectInputStream is = new ObjectInputStream(fis)) {
+             list = (List)is.readObject();
+         }
+     } catch (Exception e) {
+         e.printStackTrace();
+     }finally{
+         return list;
+     }
+ }
+}</code></pre></li>
+<li>Menu.java<div id="Menu"></div><pre><code>package org.menu.view;
+import java.util.Scanner;
+public class Menu {
+ public static final String string = &quot;1. 添加学生数据;\n&quot; + &quot;2. 序列化写入文件;\n&quot;+&quot;3. 解序列化读出文件;\n&quot;;
+ public String menu(){
+     System.out.print(string);
+     Scanner in = new Scanner(System.in);
+     return in.next();
+ }
+}</code></pre></li>
+</ol>
+<hr>
+<h2 id="九-纯文本输入"><a href="#九-纯文本输入" class="headerlink" title="九. 纯文本输入"></a>九. 纯文本输入</h2><ol>
+<li><a href="#Main">Main.java</a></li>
+<li><a href="#FileWriteTest">FileWriteTest.java</a></li>
+<li><a href="#FileReaderTest">FileReaderTest.java</a></li>
+<li><a href="#AddStudent">AddStudent.java</a><h2 id="十-四个包"><a href="#十-四个包" class="headerlink" title="十. 四个包"></a>十. 四个包</h2></li>
+<li>orc.file.control</li>
+<li>orc.file.main</li>
+<li>orc.file.student</li>
+<li>orc.file.view<h2 id="十一-代码"><a href="#十一-代码" class="headerlink" title="十一. 代码"></a>十一. 代码</h2></li>
+<li>Main.java<div id="Main"></div><pre><code> package orc.file.main;
+ import orc.file.control.AddStudent;
+ import orc.file.control.FileReaderTest;
+ import orc.file.control.FileWriterTest;
+ import orc.file.student.Student;
+ import orc.file.view.Menu;
+ import java.util.ArrayList;
+ import java.util.Iterator;
+ import java.util.List;
+ public class Main {
+     public static void main(String []args){
+         FileWriterTest fw= new FileWriterTest();
+         FileReaderTest fr = new FileReaderTest();
+         AddStudent addStudent = new AddStudent();
+         List list = new ArrayList&lt;Student&gt;();
+         Menu menu =new Menu();
+         while(true){
+             String str = menu.menu();
+             switch(str){
+                 case &quot;1&quot;: list = addStudent.addStudent();break;
+                 case &quot;2&quot;: fw.writeTest(list);break;
+                 case &quot;3&quot;:
+                     fr.readerTest();
+                     break;
+                 default:
+                     System.out.println(&quot;请重新输入!!!!\n&quot; + str);
+             }
+         }
+     }
+ }</code></pre></li>
+<li>FileWriteTest.java<div id="FileWriteTest"></div><pre><code> package orc.file.control;
+ import orc.file.student.Student;
+ import java.io.BufferedWriter;
+ import java.io.File;
+ import java.io.FileWriter;
+ import java.util.Iterator;
+ import java.util.List;
+ public class FileWriterTest {
+     public void writeTest(List list){
+         try{
+             BufferedWriter bw = new BufferedWriter(new FileWriter(new File(&quot;test1.txt&quot;)));
+             Iterator&lt;Student&gt; it = list.iterator();
+             while(it.hasNext()){
+                 Student student = it.next();
+                 bw.write(student.getId()+&quot;&quot;);
+                 bw.write(&quot; &quot;);
+                 bw.write(student.getName());
+                 bw.write(&quot;/&quot;);
+             }
+             bw.close();
+         } catch(Exception e){
+             e.printStackTrace();
+         }
+     }
+ }</code></pre></li>
+<li>FileReaderTest.java<dir id="FileReaderTest"></dir><pre><code> package orc.file.control;
+ import orc.file.student.Student;
+ import java.io.BufferedReader;
+ import java.io.File;
+ import java.io.FileReader;
+ import java.util.ArrayList;
+ import java.util.List;
+ public class FileReaderTest {
+     public void readerTest(){
+         List list = new ArrayList&lt;Student&gt;();
+         try{
+             FileReader fr = new FileReader(new File(&quot;test1.txt&quot;));
+             BufferedReader br = new BufferedReader(fr);
+             String line;
+             while((line = (br.readLine()))!=null){
+                 String []str = line.split(&quot;/&quot;);
+                 for(String s :str){
+                     String []ss = s.split(&quot; &quot;);
+                     System.out.println(ss[0]);
+                     System.out.println(ss[1]);
+                 }
+             }
+         }catch(Exception e){
+             e.printStackTrace();
+         }
+     }
+ }</code></pre></li>
+<li>AddStudent.java<dir id="AddStudent"></dir><pre><code> package orc.file.control;
+ import orc.file.student.Student;    
+ import java.util.ArrayList;
+ import java.util.List;
+ import java.util.Scanner;    
+ public class AddStudent {
+     public List addStudent(){
+         List list = new ArrayList&lt;Student&gt;();
+         Scanner in = new Scanner(System.in);
+         System.out.print(&quot;输入几次多少学生信息 :&quot;);
+         int count = in.nextInt();
+         while(count-- &gt; 0){
+             String str = in.next();
+             int id = in.nextInt();
+             Student student = new Student(str,id);
+             list.add(student);
+         }
+         return list;
+     }
+ }</code></pre></li>
+</ol>
 
             </div>
             <hr/>
@@ -1033,13 +1301,13 @@ String [] result = toTest.split(&quot;/&quot;);</code></pre>作用：将字符�
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2019/09/22/hexo/">
+                <a href="/2019/09/22/hexos/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="如何创建hexo">
+                        <img src="/medias/featureimages/8.jpg" class="responsive-img" alt="hexo美化教程最新版">
                         
-                        <span class="card-title">如何创建hexo</span>
+                        <span class="card-title">hexo美化教程最新版</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -1047,12 +1315,11 @@ String [] result = toTest.split(&quot;/&quot;);</code></pre>作用：将字符�
                         
                             一：在本地创建hexo
 在本地创建hexo文件夹
-然后进入这个新建的文件夹右键右键选择Git Bash Here
-在git命令行中输入
-npm install -g hexo
+然后进入这个新建的文件夹右键选择Git Bash Here
+在git命令行中输入npm install -g hexo
 hexo init
 npm install
-npm instal
+npm install h
                         
                     </div>
                     <div class="publish-info">
@@ -1090,28 +1357,24 @@ npm instal
         
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge right-badge text-color">
-                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+                本篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2019/09/22/hexos/">
+                <a href="/2019/09/22/java/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/8.jpg" class="responsive-img" alt="hexo美化教程最新版">
+                        <img src="/medias/featureimages/5.jpg" class="responsive-img" alt="学习java-1">
                         
-                        <span class="card-title">hexo美化教程最新版</span>
+                        <span class="card-title">学习java-1</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            一：在本地创建hexo
-在本地创建hexo文件夹
-然后进入这个新建的文件夹右键选择Git Bash Here
-在git命令行中输入npm install -g hexo
-hexo init
-npm install
-npm install h
+                            java序列化和文件的输入输出流一.java的输入流（序列化）引入 import java.io.*;
+
+FileOutputStreamFileOutputStream fileStream = new FileOutputStream(
                         
                     </div>
                     <div class="publish-info">
@@ -1122,23 +1385,28 @@ npm install h
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/Hexo教程/" class="post-category">
-                                    Hexo教程
+                            <a href="/categories/java基础/" class="post-category">
+                                    java基础
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/git快捷键输入Shift-Insert/">
-                        <span class="chip bg-color">git快捷键输入Shift+Insert</span>
+                    <a href="/tags/jvaa序列化文件输入/">
+                        <span class="chip bg-color">jvaa序列化文件输入</span>
                     </a>
                     
-                    <a href="/tags/git可以上下选择以前输入过的/">
-                        <span class="chip bg-color">git可以上下选择以前输入过的</span>
+                    <a href="/tags/java反序列化文件输出/">
+                        <span class="chip bg-color">java反序列化文件输出</span>
+                    </a>
+                    
+                    <a href="/tags/java纯文本形式输入，输出/">
+                        <span class="chip bg-color">java纯文本形式输入，输出</span>
                     </a>
                     
                 </div>
@@ -1303,7 +1571,7 @@ npm install h
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">3.8k</span>&nbsp;字
+                class="white-color">4.9k</span>&nbsp;字
             
             
             
