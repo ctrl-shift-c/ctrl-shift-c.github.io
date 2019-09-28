@@ -4,8 +4,10 @@
 
 <head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="utf-8">
-    <meta name="keywords" content="分类, 欢迎浏览">
-    <meta name="description" content="分类 | 欢迎浏览">
+    <meta name="keywords" content="学习java-1, 欢迎浏览">
+    <meta name="description" content="java序列化和文件的输入输出流一.java的输入流（序列化）引入 import java.io.*;
+
+FileOutputStreamFileInputStream fileStream = new FileOutputStream(&amp;">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -13,7 +15,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>分类 | 欢迎浏览</title>
+    <title>学习java-1 | 欢迎浏览</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -304,13 +306,13 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/12.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/5.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        categories
+                        学习java-1
                     </div>
                 </div>
             </div>
@@ -420,12 +422,33 @@
             <div class="row tag-cate">
                 <div class="col s7">
                     
-                          <div class="article-tag">
-                            <span class="chip bg-color">无标签</span>
-                          </div>
+                    <div class="article-tag">
+                        
+                            <a href="/tags/jvaa序列化文件输入/">
+                                <span class="chip bg-color">jvaa序列化文件输入</span>
+                            </a>
+                        
+                            <a href="/tags/java反序列化文件输出/">
+                                <span class="chip bg-color">java反序列化文件输出</span>
+                            </a>
+                        
+                            <a href="/tags/java纯文本形式输入，输出/">
+                                <span class="chip bg-color">java纯文本形式输入，输出</span>
+                            </a>
+                        
+                    </div>
                     
                 </div>
                 <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/java基础/" class="post-category">
+                                java基础
+                            </a>
+                        
+                    </div>
                     
                 </div>
             </div>
@@ -433,21 +456,21 @@
             <div class="post-info">
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2019-09-25
+                    2019-09-22
                 </div>
 
                 
                     
                     <div class="info-break-policy">
                         <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                        0
+                        1.2k
                     </div>
                     
 
                     
                     <div class="info-break-policy">
                         <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                        1 分
+                        4 分
                     </div>
                     
                 
@@ -463,7 +486,90 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                
+                <h2 id="java序列化和文件的输入输出流"><a href="#java序列化和文件的输入输出流" class="headerlink" title="java序列化和文件的输入输出流"></a>java序列化和文件的输入输出流</h2><h2 id="一-java的输入流（序列化）"><a href="#一-java的输入流（序列化）" class="headerlink" title="一.java的输入流（序列化）"></a>一.java的输入流（序列化）</h2><p>引入 <code>import java.io.*;</code></p>
+<ol>
+<li>FileOutputStream<br><code>FileInputStream fileStream = new FileOutputStream(&quot;文件&quot;);</code><br>注：当文件不在时创建该文件，可能抛出异常放在try里<br>作用：使得该类链接该文件，直接对文件进行操作的类</li>
+<li>ObjectInputStream<br><code>ObjectInputStream os = new ObjectInputStream(fileStream)</code><br>作用：把对象转化成可以写入串流的数据,并链接文件类</li>
+<li>writeObject<br><code>os.writeObject(chaeacterOne)</code><br>作用：对象被打成串流送到FileOutputStream来写入文件</li>
+<li>os.close()<br>作用：关闭所关联的输出流，结束像文件里输入</li>
+</ol>
+<hr>
+<p>注：<br>    1. 当对象被序列化时，被对象所引用的所有变量都会被序列化（实例变量，引用的对象等），序列化只有全有或者全无，没有半序列化（除了被声明为<code>transient</code>量外）<br>    2. 要想一个类能够被序列化必须告诉计算机，也就是必须实现这个接口<code>Serializable</code>，这个接口没有任何方法，他仅代表该类可以被序列化。<br>    3. 声明为<code>Serializable</code>的子类也会自动表示为可序列化，不用再次声明.<br>    4. 如果某个实例不能或不应该被序列化，就把他标记为<code>transient</code>，引用的实例变量以<strong>null</strong>的值返回，实例变量以<strong>默认值</strong>返回<br>    5. 即便父类不是可序列化的子类一样可以时序列化的<br>    6. 当多个引用变量指向同一个对象时，序列化只会序列化一次对象，并不会复制三次对象。</p>
+<hr>
+<h2 id="二-java的输出流（解序列化）"><a href="#二-java的输出流（解序列化）" class="headerlink" title="二.java的输出流（解序列化）"></a>二.java的输出流（解序列化）</h2><ol>
+<li>FileInputStream<br><code>FileInputStream fileStream = new FileInputStream(&quot;文件&quot;);</code><br>注：文件不存在时会抛出异常<br>作用：连接文件,对文件操作可以输出文件内容</li>
+<li>ObjectInputStream<br>ObjectInputStream os = new ObjectInputStream(fileStream);<br>作用：链接文件类</li>
+<li>readObject<br><code>Object one - os.readObject();</code><br>作用：将文件的第一个字节流输入=出到one对象里</li>
+</ol>
+<hr>
+<p>注：</p>
+<ol>
+<li>每次调用readObject()都会从stream中读出下一个对象，Stream指针一开始在文件第一个字符前，然后每次读取一次，每次下移动一次，然后当没有字符可以读时返回null，这个null可以作为判断条件。</li>
+<li>读取的顺序与写入的顺序一致</li>
+<li>当次数超过会抛出异常（因此需要在读取之前判断，或者throws相应的异常，在catch里进行解决）</li>
+</ol>
+<hr>
+<ol start="4">
+<li>转化类型<br>XXXX elf = (XXXX)one<br>因为提取出的数据时Object型的。</li>
+<li>os.close()<br>作用： 关闭输出流，结束从文件向外输出</li>
+</ol>
+<hr>
+<p>注：</p>
+<ol>
+<li>从第一个不可序列化的父类开始全部都会重新初始状态静态变量不会被序列化</li>
+</ol>
+<hr>
+<h2 id="三-磁盘文件"><a href="#三-磁盘文件" class="headerlink" title="三.磁盘文件"></a>三.磁盘文件</h2><ol>
+<li>File<br><code>File f = new File(&quot;文件&quot;);</code><br>作用：磁盘上上的文件</li>
+</ol>
+<hr>
+<p>注：<br>表示特定文件的<strong>地址</strong>，不是文件本身</p>
+<hr>
+<p>2.mkdir<br><code>f.mkdir();</code><br>作用:建立新的目录<br>3.isDirectory(),list</p>
+<pre><code>if(f.idDirectory()){
+    String []dirContents = dir.list();
+    for(int i=0; i&lt;disContents; i++){
+        System,out.println(dirContents[i])
+    }
+}</code></pre><p>作用：列出目录下的内容</p>
+<ol start="4">
+<li>getAbsolutePath<br><code>f.getAbsolutePath();</code><br>作用：取得文件或目录的绝对路径</li>
+<li>delete     boolean<br><code>f.delete()</code><br>作用：删除文件或者目录<br>此例中删除的是目录</li>
+</ol>
+<hr>
+<h2 id="四-缓冲区"><a href="#四-缓冲区" class="headerlink" title="四.缓冲区"></a>四.缓冲区</h2><p>缓冲区：可以一次存储很多数据后，一并输入，当多次输入时比次多次的输入效率高，减少对磁盘的操作次数</p>
+<ol>
+<li>BufferedWriter<br><code>BufferedWriter write = new BufferedWriter(new FileWriter(aFile));</code><br>作用：建立文件输入的缓冲区</li>
+<li>BufferdReader<br>例子：<pre><code>try{
+ File myFile = new File(&quot;文件&quot;);
+ FileReader fileReader = new FileReader(myFile);
+ BufferedReader reader = new BufferedReader(fillReader);
+ String line - null;
+ while((line = reader.readLine())! = null){
+     System.out.pintln(line);
+ }
+ reader.close();
+}catch(Exception ex){
+ ex.printStackTrace();
+}</code></pre></li>
+<li>split<pre><code>String toTest = &quot;XXXXXX/XXX/XXX&quot;;
+String [] result = toTest.split(&quot;/&quot;);</code></pre>作用：将字符串分解成字符数组按照你给定的方式</li>
+</ol>
+<hr>
+<h2 id="五-注意"><a href="#五-注意" class="headerlink" title="五.注意"></a>五.注意</h2><p>修改一般序列化后不要进行的操作，要不会造成解序列化的失败      </p>
+<ol>
+<li>改变实例变量的类型</li>
+<li>将非瞬时的实例变量变成瞬时的</li>
+<li>改变类的继承结构</li>
+<li>将类从可序列化变成不可序列化</li>
+<li>将实例变量变成静态变量</li>
+<li>删除实例变量<br>只要不是上方的几种可以使用<strong>SerialVersionUID</strong>，进行控制</li>
+<li>每次被序列化的对象都会产生一个版本号，这个版本号将烙印在所有的该类上，一旦你更改了类的方法，变量等，就会改变版本号导致在解序列化时产生错误，因此可以得到SeriaalVersionUID,进行版本控制，即新版的可以插件旧版本里（注意你认为是对的，要不就会产生错误）</li>
+<li>如何的到SerialVersiouUID?<br> 使用java Development Kit 里面带的serialver,你会看到<strong>static final long serialVersionUID = XXXXXXXX;</strong></li>
+<li>如何用呢?<br>将上述得到的serialVerlonUID全部复制，放到新类的第一行即可，</li>
+</ol>
+<hr>
+
             </div>
             <hr/>
 
@@ -623,8 +729,8 @@
                 </a>
             </div>
             <br/>
-            <a  href="/categories/index.html">
-                    《categories》
+            <a  href="/2019/09/22/java/">
+                    《学习java-1》
             </a> 由
             <a href="https://www.libaiyang.top">
                 李柏杨
@@ -928,34 +1034,56 @@
                 <i class="fas fa-chevron-left"></i>&nbsp;本篇
             </div>
             <div class="card">
-                <a href="/categories/index.html">
+                <a href="/2019/09/22/java/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="categories">
+                        <img src="/medias/featureimages/5.jpg" class="responsive-img" alt="学习java-1">
                         
-                        <span class="card-title">categories</span>
+                        <span class="card-title">学习java-1</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            
+                            java序列化和文件的输入输出流一.java的输入流（序列化）引入 import java.io.*;
+
+FileOutputStreamFileInputStream fileStream = new FileOutputStream(&
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2019-09-25
+                                <i class="far fa-clock fa-fw icon-date"></i>2019-09-22
                             </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-user fa-fw"></i>
-                            李柏杨
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/java基础/" class="post-category">
+                                    java基础
+                                </a>
+                            
                             
                         </span>
                     </div>
                 </div>
 
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/jvaa序列化文件输入/">
+                        <span class="chip bg-color">jvaa序列化文件输入</span>
+                    </a>
+                    
+                    <a href="/tags/java反序列化文件输出/">
+                        <span class="chip bg-color">java反序列化文件输出</span>
+                    </a>
+                    
+                    <a href="/tags/java纯文本形式输入，输出/">
+                        <span class="chip bg-color">java纯文本形式输入，输出</span>
+                    </a>
+                    
+                </div>
                 
             </div>
         </div>
@@ -963,37 +1091,59 @@
         
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge right-badge text-color">
-                本篇&nbsp;<i class="fas fa-chevron-right"></i>
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/categories/index.html">
+                <a href="/2019/09/22/hexo/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="categories">
+                        <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="如何创建hexo">
                         
-                        <span class="card-title">categories</span>
+                        <span class="card-title">如何创建hexo</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            
+                            一：在本地创建hexo
+在本地创建hexo文件夹
+然后进入这个新建的文件夹右键右键选择Git Bash Here
+在git命令行中输入
+npm install -g hexo
+hexo init
+npm install
+npm instal
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2019-09-25
+                                <i class="far fa-clock fa-fw icon-date"></i>2019-09-22
                             </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-user fa-fw"></i>
-                            李柏杨
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Hexo教程/" class="post-category">
+                                    Hexo教程
+                                </a>
+                            
                             
                         </span>
                     </div>
                 </div>
-
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/git快捷键输入Shift-Insert/">
+                        <span class="chip bg-color">git快捷键输入Shift+Insert</span>
+                    </a>
+                    
+                    <a href="/tags/git可以上下选择以前输入过的/">
+                        <span class="chip bg-color">git可以上下选择以前输入过的</span>
+                    </a>
+                    
+                </div>
                 
             </div>
         </div>
