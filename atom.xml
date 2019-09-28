@@ -54,47 +54,21 @@
   </entry>
   
   <entry>
-    <title>最全最简单的hexo创键美化教程</title>
+    <title>如何创建hexo1</title>
     <link href="https://www.libaiyang.top/2019/09/22/hexos/"/>
     <id>https://www.libaiyang.top/2019/09/22/hexos/</id>
     <published>2019-09-22T05:19:02.000Z</published>
-    <updated>2019-09-26T09:40:14.122Z</updated>
+    <updated>2019-09-28T01:21:56.564Z</updated>
     
     <summary type="html">
     
-      &lt;hr&gt;
-&lt;h2 id=&quot;一：在本地创建hexo&quot;&gt;&lt;a href=&quot;#一：在本地创建hexo&quot; class=&quot;headerlink&quot; title=&quot;一：在本地创建hexo&quot;&gt;&lt;/a&gt;一：在本地创建hexo&lt;/h2&gt;&lt;ol&gt;
-&lt;li&gt;&lt;p&gt;在本地创建hexo文件夹&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;然后进入这个新建的文件夹右键右键选择Git Bash Here&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;在git命令行中输入&lt;/p&gt;
-&lt;code&gt;
-
-&lt;ol&gt;
-&lt;li&gt;npm install -g hexo&lt;/li&gt;
-&lt;li&gt;hexo init&lt;/li&gt;
-&lt;li&gt;npm install&lt;/li&gt;
-&lt;li&gt;npm install hexo-deployer-git –save&lt;/li&gt;
-&lt;li&gt;hexo s&lt;/li&gt;
-&lt;li&gt;hexo g&lt;/li&gt;
-&lt;li&gt;hexo d&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/code&gt;&lt;/li&gt;
-&lt;/ol&gt;
-&lt;code&gt;
----
----
-注意前期执行到第5不即可
-1. 当输入-hexo s-后会停止，提示你输入-ctrl+C-退出
-2. 输入
-```
-http://localhost:4000/
-```
-如果显示界面证明配置成功
-3. -Ctrl+C-退出
-4. 如果没有界面显示删除文件夹继续上述步骤直到成功
----
+      
+      
+        
+        
+          &lt;h2 id=&quot;一：在本地创建hexo&quot;&gt;&lt;a href=&quot;#一：在本地创建hexo&quot; class=&quot;headerlink&quot;
+        
+      
     
     </summary>
     
